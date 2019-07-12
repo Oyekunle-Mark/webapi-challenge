@@ -6,6 +6,15 @@ function getActions(req, res) {
     .catch(err => res.status(500).json(err));
 }
 
+function getActionById(req, res) {
+  const { id } = req.params;
+
+  Actions.get(id)
+    .then(actions => res.status(200).json(actions))
+    .catch(err => res.status(500).json(err));
+}
+
 module.exports = {
   getActions,
+  getActionById,
 };
