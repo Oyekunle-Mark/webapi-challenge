@@ -1,12 +1,17 @@
 const router = require('express').Router();
 
 const handlers = require('./routeHandlers');
+const validators = require('../../middleware/validateProject');
 
 router.get('/', handlers.getProjects);
-router.get('/:id', handlers.getProjectById);
+router.get('/:id', validators.validateProjectId, handlers.getProjectById);
 router.post('/', handlers.createProject);
-router.delete('/:id', handlers.deleteProject);
-router.put('/:id', handlers.updateProject);
-router.get('/:id/actions', handlers.getProjectActions);
+router.delete('/:id', validators.validateProjectId, handlers.deleteProject);
+router.put('/:id', validators.validateProjectId, handlers.updateProject);
+router.get(
+  '/:id/actions',
+  validators.validateProjectId,
+  handlers.getProjectActions,
+);
 
 module.exports = router;
