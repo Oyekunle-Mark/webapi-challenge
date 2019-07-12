@@ -30,9 +30,19 @@ function deleteProject(req, res) {
     .catch(err => res.status(500).json(err));
 }
 
+function updateProject(req, res) {
+  const { id } = req.params;
+  const { name, description, completed } = req.body;
+
+  Projects.update(id, { name, description, completed })
+    .then(project => res.status(200).json(project))
+    .catch(err => res.status(500).json(err));
+}
+
 module.exports = {
   getProjects,
   getProjectById,
   createProject,
   deleteProject,
+  updateProject,
 };
