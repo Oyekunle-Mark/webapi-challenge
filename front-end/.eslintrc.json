@@ -19,6 +19,9 @@
     "import/no-extraneous-dependencies": 0,
     "arrow-parens": 0,
     "global-require": 0,
-    "import/no-dynamic-require": 0
+    "import/no-dynamic-require": 0,
+    "react/prefer-stateless-function": 0,
+    "react/no-unused-state": 0,
+    "implicit-arrow-linebreak": 0
   }
 }
