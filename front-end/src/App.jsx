@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import ProjectContext from './context';
+import Projects from './components/Projects';
 
 class App extends Component {
   state = {
@@ -11,7 +13,7 @@ class App extends Component {
   componentDidMount() {
     axios
       .get('http://localhost:5000/api/projects')
-      .then(res => this.updateProjects(res));
+      .then(res => this.updateProjects(res.data));
   }
 
   updateProjects = projects =>
@@ -21,9 +23,12 @@ class App extends Component {
 
   render() {
     return (
-      <ProjectContext.Provider value={this.state}>
-        <h1>Project Manager</h1>
-      </ProjectContext.Provider>
+      <Router>
+        <ProjectContext.Provider value={this.state}>
+          <h1>Project Manager</h1>
+          <Projects />
+        </ProjectContext.Provider>
+      </Router>
     );
   }
 }
