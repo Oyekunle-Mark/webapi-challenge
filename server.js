@@ -6,6 +6,7 @@ const compression = require('compression');
 
 const server = express();
 const projectRouter = require('./router/project');
+const actionRouter = require('./router/action');
 const badUrl = require('./middleware/badUrl');
 
 server.use(express.json());
@@ -19,7 +20,7 @@ server.get('/', (req, res) =>
 );
 
 server.use('/api/projects', projectRouter);
-
+server.use('/api/actions', actionRouter);
 server.use(badUrl);
 
 module.exports = server;
