@@ -22,6 +22,11 @@
     "import/no-dynamic-require": 0,
     "react/prefer-stateless-function": 0,
     "react/no-unused-state": 0,
-    "implicit-arrow-linebreak": 0
+    "implicit-arrow-linebreak": 0,
+    "quotes": 0,
+    "function-paren-newline": 0,
+    "no-console": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "operator-linebreak": 0
   }
 }
