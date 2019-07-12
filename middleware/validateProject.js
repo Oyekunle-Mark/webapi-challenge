@@ -3,7 +3,7 @@ const Projects = require('../data/helpers/projectModel');
 function validateProjectId(req, res, next) {
   const { id } = req.params;
 
-  if (!/^\d$/.test(id))
+  if (!/^\d+$/.test(id))
     return res.status(400).json({ message: 'ID must be an integer' });
 
   Projects.get(id)
