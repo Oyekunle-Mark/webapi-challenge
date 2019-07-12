@@ -31,9 +31,18 @@ function updateAction(req, res) {
     .catch(err => res.status(500).json(err));
 }
 
+function deleteAction(req, res) {
+  const { id } = req.params;
+
+  Actions.remove(id)
+    .then(action => res.status(200).json(`${action} action deleted`))
+    .catch(err => res.status(500).json(err));
+}
+
 module.exports = {
   getActions,
   getActionById,
   createAction,
   updateAction,
+  deleteAction,
 };
