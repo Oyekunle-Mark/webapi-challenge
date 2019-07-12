@@ -26,7 +26,7 @@ function deleteProject(req, res) {
   const { id } = req.params;
 
   Projects.remove(id)
-    .then(project => res.status(200).json(project))
+    .then(project => res.status(200).json(`${project} project deleted`))
     .catch(err => res.status(500).json(err));
 }
 
