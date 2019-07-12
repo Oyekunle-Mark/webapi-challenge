@@ -22,8 +22,18 @@ function createAction(req, res) {
     .catch(err => res.status(500).json(err));
 }
 
+function updateAction(req, res) {
+  const { id } = req.params;
+  const { description, notes, completed } = req.body;
+
+  Actions.update(id, { description, notes, completed })
+    .then(action => res.status(201).json(action))
+    .catch(err => res.status(500).json(err));
+}
+
 module.exports = {
   getActions,
   getActionById,
   createAction,
+  updateAction,
 };
