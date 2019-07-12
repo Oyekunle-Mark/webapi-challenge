@@ -17,5 +17,5 @@ export default () => {
     />
   ));
 
-  return <div>{projectList}</div>;
+  return <>{projectList}</>;
 };
