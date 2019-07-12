@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import ProjectContext from './context';
-import Projects from './components/Projects';
+import Projects from './components/ProjectLink';
+import Project from './components/ProjectRoute';
+import Header from './components/Header';
 
 class App extends Component {
   state = {
@@ -25,8 +27,9 @@ class App extends Component {
     return (
       <Router>
         <ProjectContext.Provider value={this.state}>
-          <h1>Project Manager</h1>
-          <Projects />
+          <Header />
+          <Route exact path="/" component={Projects} />
+          <Project />
         </ProjectContext.Provider>
       </Router>
     );
