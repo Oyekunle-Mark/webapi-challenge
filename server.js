@@ -6,6 +6,7 @@ const compression = require('compression');
 
 const server = express();
 const projectRouter = require('./router/project');
+const badUrl = require('./middleware/badUrl');
 
 server.use(express.json());
 server.use(cors());
@@ -19,6 +20,6 @@ server.get('/', (req, res) =>
 
 server.use('/api/projects', projectRouter);
 
-server.use((req, res) => res.status(404).json('That URL looks fishy mate!'));
+server.use(badUrl);
 
 module.exports = server;
