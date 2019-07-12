@@ -39,10 +39,19 @@ function updateProject(req, res) {
     .catch(err => res.status(500).json(err));
 }
 
+function getProjectActions(req, res) {
+  const { id } = req.params;
+
+  Projects.getProjectActions(id)
+    .then(actions => res.status(200).json(actions))
+    .catch(err => res.status(500).json(err));
+}
+
 module.exports = {
   getProjects,
   getProjectById,
   createProject,
   deleteProject,
   updateProject,
+  getProjectActions,
 };
