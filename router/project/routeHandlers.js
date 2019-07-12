@@ -22,8 +22,17 @@ function createProject(req, res) {
     .catch(err => res.status(500).json(err));
 }
 
+function deleteProject(req, res) {
+  const { id } = req.params;
+
+  Projects.remove(id)
+    .then(project => res.status(200).json(project))
+    .catch(err => res.status(500).json(err));
+}
+
 module.exports = {
   getProjects,
   getProjectById,
   createProject,
+  deleteProject,
 };
