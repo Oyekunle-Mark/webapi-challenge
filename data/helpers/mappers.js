@@ -1,10 +1,3 @@
-module.exports = {
-  intToBoolean,
-  booleanToint,
-  projectToBody,
-  actionToBody,
-};
-
 function intToBoolean(int) {
   return int === 1 ? true : false;
 }
@@ -35,3 +28,10 @@ function actionToBody(action) {
     completed: intToBoolean(action.completed),
   };
 }
+
+module.exports = {
+  intToBoolean,
+  booleanToint,
+  projectToBody,
+  actionToBody,
+};

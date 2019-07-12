@@ -5,6 +5,7 @@ const helmet = require('helmet');
 const compression = require('compression');
 
 const server = express();
+const projectRouter = require('./router/project');
 
 server.use(express.json());
 server.use(cors());
@@ -15,6 +16,8 @@ server.use(compression());
 server.get('/', (req, res) =>
   res.status(200).json('Welcome to tha one and only server!!!'),
 );
+
+server.use('/api/projects', projectRouter);
 
 server.use((req, res) => res.status(404).json('That URL looks fishy mate!'));
 
