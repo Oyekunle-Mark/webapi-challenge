@@ -1,0 +1,32 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "spread": true
+    }
+  },
+  "rules": {
+    "import/no-extraneous-dependencies": 0,
+    "arrow-parens": 0,
+    "global-require": 0,
+    "import/no-dynamic-require": 0,
+    "react/prefer-stateless-function": 0,
+    "react/no-unused-state": 0,
+    "implicit-arrow-linebreak": 0,
+    "quotes": 0,
+    "function-paren-newline": 0,
+    "no-console": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "operator-linebreak": 0
+  }
+}
